@@ -7,7 +7,7 @@
 - **Inheritance, Polymorphism, Abstraction, Encapsulation**
 - **Interfaces** 
 - **Virtual Functions & Abstract Classes**
-- **Association and its Types
+- **Association and its Types**
 
 ---
 
