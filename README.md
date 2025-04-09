@@ -20,10 +20,42 @@
 - Graphs (BFS, DFS, Dijkstra’s, MST)
 
 #### **Algorithms**:
-- Sorting (QuickSort, MergeSort, HeapSort)
-- Searching (Binary Search)
+## Data Structures & Algorithms (DSA)
+
+### Searching Algorithms
+- Linear Search
+- Binary Search
+- Depth First Search (DFS)
+- Breadth First Search (BFS)
+
+### Sorting Algorithms
+- Insertion Sort
+- Heap Sort
+- Selection Sort
+- Merge Sort
+- Quick Sort
+- Counting Sort
+- Bubble Sort
+- Bucket Sort
+- Radix Sort
+
+### Graph Algorithms
+- Dijkstra's Algorithm
+- Bellman-Ford Algorithm
+- Floyd-Warshall Algorithm
+- Topological Sort
+- Kruskal's Algorithm
+
+### Array Algorithms
+- Floyd's Cycle Detection
+- Quick Select
+
+### Advanced Algorithms
+- Huffman Coding (Compression)
+
+### Others
 - Recursion & Backtracking
-- Dynamic Programming (Knapsack, LCS, Fibonacci)
+- Dynamic Programming
 - Greedy Algorithms
 
 ---
