@@ -349,6 +349,43 @@ public:
 };
 ```
 
+# 📚 Data Structures & Algorithms (DSA) Guide
 
+## 🏗️ Data Structures
+
+---
+
+### 🔹 Arrays
+**Description:**  
+Contiguous memory locations storing elements of the same type.
+
+**Operations:**
+- Access: O(1)
+- Search: O(n)
+- Insertion/Deletion: O(n)
+
+```cpp
+int arr[5] = {1, 2, 3, 4, 5};
+cout << arr[2];  // Output: 3
+```
+
+
+### 🔹 Linked Lists
+**Description:**  
+Linear collection where elements (nodes) contain data + pointer to next node.
+
+**Types:**
+- Singly Linked
+- Doubly Linked
+- Circular
+
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* head = new Node{1, new Node{2, nullptr}};
+```
 
 
