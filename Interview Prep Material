@@ -1,1 +1,122 @@
 
+# 📘 Interview Preparation Guide
+
+## 📌 Core Topics to Prepare
+
+---
+
+# 1. 🧠 Object-Oriented Programming (OOP)
+
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of **“objects”**, which can contain data and code to manipulate the data. It aims to model real-world entities using classes and objects.
+
+---
+
+## 🔹 Classes & Objects
+
+### 🔸 Explanation
+
+- **Class**: A user-defined blueprint or prototype from which objects are created.
+- **Object**: An instance of a class. It holds actual values for the attributes defined in the class.
+
+Objects represent **entities**, and classes define **their structure and behavior**.
+
+### 🔸 Key Points:
+- Classes define **properties (data members)** and **behaviors (member functions)**.
+- Objects are instances that use memory during runtime.
+
+---
+
+## 🔹 Inheritance
+
+### 🔸 Explanation
+
+Inheritance is the process by which one class (child/derived class) acquires the properties and behavior (methods) of another class (parent/base class). It helps with **code reuse and extensibility**.
+
+### 🔸 Types of Inheritance:
+- **Single** – One base class, one derived class
+- **Multilevel** – Inheritance through a chain
+- **Multiple** – One class inherits from multiple classes
+- **Hierarchical** – Multiple classes inherit from one base class
+
+---
+
+## 🔹 Polymorphism
+
+### 🔸 Explanation
+
+Polymorphism means **"many forms"**. It allows objects to be treated as instances of their parent class rather than their actual class. The most common use is when a parent class reference is used to refer to a child class object.
+
+### 🔸 Types:
+- **Compile-Time (Static)** – Function Overloading, Operator Overloading
+- **Run-Time (Dynamic)** – Virtual Functions
+
+---
+
+## 🔹 Abstraction
+
+### 🔸 Explanation
+
+Abstraction means showing only **essential information** and hiding unnecessary details. It reduces complexity and increases efficiency by focusing only on what an object does instead of how it does it.
+
+Achieved in C++ through:
+- Abstract Classes (with pure virtual functions)
+- Interfaces (in other OOP languages)
+
+---
+
+## 🔹 Encapsulation
+
+### 🔸 Explanation
+
+Encapsulation is the process of **binding data and functions** that operate on that data into a single unit, i.e., a class. It helps protect data from unauthorized access using access specifiers:
+- `private`
+- `public`
+- `protected`
+
+---
+
+## 🔹 Virtual Functions & Abstract Classes
+
+### 🔸 Virtual Functions:
+A virtual function is a member function in the base class that you can **override** in a derived class. It allows **runtime polymorphism**.
+
+### 🔸 Abstract Classes:
+An abstract class contains **at least one pure virtual function**. It cannot be instantiated directly. It serves as a blueprint for other classes.
+
+```cpp
+class Shape {
+public:
+    virtual void draw() = 0;  // pure virtual function
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Circle";
+    }
+};
+```
+
+---
+
+## 🔹 Interfaces
+
+In C++, interfaces are implemented via **abstract classes with only pure virtual functions**.
+
+In languages like Java or C#, an interface is a contract that a class must follow if it implements the interface.
+
+---
+
+## 🔹 Association and its Types
+
+### 🔸 Association:
+Association is a **relationship between two classes** that is established through their objects.
+
+### 🔸 Types of Association:
+
+| Type          | Description | Example |
+|---------------|-------------|---------|
+| Aggregation   | "Has-a" relationship. Child can exist independently of the parent. | A Library has Books |
+| Composition   | Stronger "Has-a". Child cannot exist without parent. | A House has Rooms |
+| Association   | General connection between two objects. | A Doctor treats Patients |
+
