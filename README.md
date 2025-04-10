@@ -389,3 +389,228 @@ Node* head = new Node{1, new Node{2, nullptr}};
 ```
 
 
+# 📘 Data Structures & Algorithms (DSA)
+
+---
+
+## 🧱 Data Structures
+
+### 1. Arrays
+**Description**: Arrays are a collection of elements stored at contiguous memory locations. They allow fast access using an index.
+
+**Example**:
+```cpp
+int arr[5] = {1, 2, 3, 4, 5};
+cout << arr[2]; // Output: 3
+```
+
+---
+
+### 2. Strings
+**Description**: Strings are arrays of characters ending with a null character (`\0`). C++ provides the `string` class for dynamic strings.
+
+**Example**:
+```cpp
+string s = "Hello";
+cout << s.length(); // Output: 5
+```
+
+---
+
+### 3. Linked Lists
+**Description**: A linear data structure where elements are stored in nodes and each node points to the next.
+
+**Example**:
+```cpp
+struct Node {
+    int data;
+    Node* next;
+};
+```
+
+---
+
+### 4. Stacks
+**Description**: Follows Last In First Out (LIFO) principle.
+
+**Example**:
+```cpp
+stack<int> st;
+st.push(10); st.pop();
+```
+
+---
+
+### 5. Queues
+**Description**: Follows First In First Out (FIFO) principle.
+
+**Example**:
+```cpp
+queue<int> q;
+q.push(20); q.pop();
+```
+
+---
+
+### 6. Trees (Binary, BST, AVL, Heap)
+**Description**: Hierarchical structure. BST keeps data ordered, AVL is self-balancing, and heaps maintain a heap property.
+
+**Example** (BST Insertion):
+```cpp
+struct Node {
+    int data;
+    Node *left, *right;
+    Node(int val): data(val), left(NULL), right(NULL) {}
+};
+```
+
+---
+
+### 7. Graphs
+**Description**: Consists of nodes (vertices) and edges. Can be directed/undirected.
+
+**Example**:
+```cpp
+vector<int> graph[100];
+graph[0].push_back(1);
+```
+
+---
+
+## 🔍 Searching Algorithms
+
+### 1. Linear Search
+**Description**: Search each element until match is found.
+
+**Example**:
+```cpp
+for (int i = 0; i < n; i++)
+    if (arr[i] == x) return i;
+```
+
+---
+
+### 2. Binary Search
+**Description**: Efficient search on sorted array by dividing into halves.
+
+**Example**:
+```cpp
+int binarySearch(int arr[], int l, int r, int x);
+```
+
+---
+
+### 3. DFS (Depth First Search)
+**Description**: Explore as far as possible along each branch.
+
+**Example**:
+```cpp
+void DFS(int v) {
+    visited[v] = true;
+    for (int u : adj[v])
+        if (!visited[u]) DFS(u);
+}
+```
+
+---
+
+### 4. BFS (Breadth First Search)
+**Description**: Explore neighbor nodes level by level.
+
+**Example**:
+```cpp
+queue<int> q;
+q.push(start);
+visited[start] = true;
+```
+
+---
+
+## 📊 Sorting Algorithms
+
+### Insertion Sort
+```cpp
+for (int i = 1; i < n; i++) {
+    int key = arr[i], j = i - 1;
+    while (j >= 0 && arr[j] > key) arr[j + 1] = arr[j--];
+    arr[j + 1] = key;
+}
+```
+
+### Heap Sort
+**Uses heap to extract elements in sorted order.**
+
+### Selection Sort
+**Selects minimum and places in correct position.**
+
+### Merge Sort
+**Divide and conquer sorting technique.**
+
+### Quick Sort
+**Choose pivot, partition, and sort recursively.**
+
+### Counting Sort
+**Used for small range integers.**
+
+### Bubble Sort
+```cpp
+for (int i = 0; i < n-1; i++)
+    for (int j = 0; j < n-i-1; j++)
+        if (arr[j] > arr[j+1]) swap(arr[j], arr[j+1]);
+```
+
+### Bucket Sort & Radix Sort
+**Used for integer or floating-point sorting with known range.**
+
+---
+
+## 🌐 Graph Algorithms
+
+### Dijkstra's Algorithm
+**Finds shortest paths from source to all nodes.**
+
+### Bellman-Ford Algorithm
+**Handles negative weights too.**
+
+### Floyd-Warshall Algorithm
+**All-pairs shortest paths.**
+
+### Topological Sort
+**Ordering of vertices in DAG.**
+
+### Kruskal's Algorithm
+**Minimum Spanning Tree using Union-Find.**
+
+---
+
+## 📈 Array Algorithms
+
+### Floyd’s Cycle Detection
+**Detects loop in linked list.**
+
+### Quick Select
+**Find kth smallest/largest element.**
+
+---
+
+## 🔁 Advanced Algorithms
+
+### Huffman Coding
+**Greedy compression algorithm.**
+
+---
+
+## 🧠 Other Topics
+
+### Recursion & Backtracking
+**Recursive solutions exploring all possibilities.**
+
+### Dynamic Programming
+**Solving problems by combining subproblem results.**
+
+### Greedy Algorithms
+**Locally optimal choice aiming for global optimum.**
+
+
+
+
