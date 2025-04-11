@@ -92,7 +92,7 @@
 
 ---
 
-# 1. 🧠 Object-Oriented Programming (OOP)
+# 1.🧠 Object-Oriented Programming (OOP)
 
 Object-Oriented Programming (OOP) is a programming paradigm based on the concept of **“objects”**, which can contain data and code to manipulate the data. It aims to model real-world entities using classes and objects.
 
@@ -351,7 +351,7 @@ public:
 ---
 ---
 
-# 2. 📚 Data Structures & Algorithms (DSA) Guide
+# 2.📚 Data Structures & Algorithms (DSA) Guide
 
 ## 🏗️ Data Structures
 
@@ -615,7 +615,7 @@ for (int i = 0; i < n-1; i++)
 ---
 ---
 
-# 3. Complete MySQL Database Guide
+# 3.🗄️Complete MySQL Database Guide
 
 ## SQL Queries in MySQL
 
@@ -1068,4 +1068,127 @@ db.users.aggregate([
 ---
 ---
 
+# 4.📡 Computer Networks (CN) Detailed Guide
 
+---
+
+## 1. OSI and TCP/IP Models
+
+### 📘 OSI Model (Open Systems Interconnection)
+- **A conceptual framework** to understand and implement networking protocols in 7 layers.
+- **Layers (Top to Bottom):**
+  1. **Application** – Interface for end-user applications (e.g., browsers, email clients).
+  2. **Presentation** – Translates data formats (e.g., encryption, compression).
+  3. **Session** – Manages sessions and dialogues between computers.
+  4. **Transport** – Reliable delivery of data (e.g., TCP).
+  5. **Network** – Handles routing and logical addressing (e.g., IP).
+  6. **Data Link** – Physical addressing and error detection (e.g., MAC address).
+  7. **Physical** – Transmission of raw bits (e.g., cables, switches).
+
+### 🖥️ TCP/IP Model
+- Practical model used in real-world networks (like the internet).
+- **Layers (Top to Bottom):**
+  1. **Application** – Includes OSI's Application, Presentation, and Session layers.
+  2. **Transport** – Same as OSI's transport; TCP/UDP reside here.
+  3. **Internet** – Same as OSI’s Network layer; IP resides here.
+  4. **Network Access (Link)** – Combines Data Link and Physical layers of OSI.
+
+> 📌 **Mapping OSI to TCP/IP:**  
+OSI 7 Layers → TCP/IP 4 Layers  
+Application + Presentation + Session → Application  
+Transport → Transport  
+Network → Internet  
+Data Link + Physical → Network Access
+
+---
+
+## 2. HTTP vs HTTPS, DNS, REST APIs
+
+### 🔗 HTTP vs HTTPS
+
+| Feature         | HTTP                             | HTTPS                          |
+|----------------|----------------------------------|--------------------------------|
+| Protocol        | HyperText Transfer Protocol      | HTTP with Secure Socket Layer |
+| Security        | Not secure (data in plain text) | Encrypted using TLS/SSL       |
+| Port            | 80                              | 443                            |
+| Use Case        | Non-sensitive content            | Banking, login, e-commerce     |
+| Certificate     | Not required                     | SSL/TLS certificate required   |
+
+- **HTTPS** encrypts data between the browser and server, preventing interception (MITM attacks).
+
+### 🌍 DNS (Domain Name System)
+- Converts **domain names** (e.g., `google.com`) into **IP addresses** (e.g., `142.250.183.206`).
+- Works like a **phonebook** for the internet.
+- **Types of DNS Records:**
+  - `A` – Maps domain to IPv4 address.
+  - `AAAA` – Maps domain to IPv6 address.
+  - `CNAME` – Canonical name (aliases).
+  - `MX` – Mail exchange (for email).
+  - `NS` – Name server.
+
+### 📡 REST APIs (Representational State Transfer)
+- A standard architecture for designing **web services**.
+- Based on **stateless communication** using HTTP.
+- Common **HTTP Methods:**
+  - `GET` – Read data
+  - `POST` – Create new data
+  - `PUT` – Update existing data
+  - `DELETE` – Remove data
+
+> REST APIs are commonly used for backend services, mobile apps, and frontend communication.
+
+---
+
+## 3. TCP vs UDP
+
+| Feature         | TCP (Transmission Control Protocol) | UDP (User Datagram Protocol)      |
+|----------------|-------------------------------------|-----------------------------------|
+| Type            | Connection-oriented                 | Connectionless                    |
+| Reliability     | Reliable (acknowledgments, retries) | Unreliable (no guarantee)         |
+| Speed           | Slower                              | Faster                            |
+| Use Case        | File transfers, Emails, Web         | Video streaming, VoIP, Gaming     |
+| Header Size     | 20 bytes                            | 8 bytes                           |
+| Ordering        | Maintains order                     | No ordering                       |
+
+### TCP Characteristics:
+- **3-Way Handshake:** SYN → SYN-ACK → ACK
+- **Flow & Congestion Control**
+- **Error Checking & Correction**
+
+### UDP Characteristics:
+- **No Handshake**
+- **Low overhead**
+- Suitable for real-time apps.
+
+---
+
+## 4. IP Addressing (IPv4, IPv6, Subnetting)
+
+### 🌐 IPv4 (Internet Protocol Version 4)
+- **32-bit address**, represented as four decimal octets (e.g., `192.168.1.1`)
+- Total of **~4.3 billion addresses**.
+- **Classes:**
+  - A (1.0.0.0 – 126.255.255.255)
+  - B (128.0.0.0 – 191.255.255.255)
+  - C (192.0.0.0 – 223.255.255.255)
+  - D (Multicast), E (Reserved)
+
+### 🆕 IPv6
+- **128-bit address**, e.g., `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+- Supports **~340 undecillion addresses**.
+- Solves IPv4 exhaustion problem.
+- Simplifies header processing.
+
+### 🧮 Subnetting
+- Divides IP networks into **subnets** to improve routing and security.
+- **Subnet Mask:** Determines the network and host part of an IP address.
+  - Example: `255.255.255.0` (or `/24`) means first 24 bits are network bits.
+- Helps in:
+  - Efficient IP address allocation
+  - Network segmentation
+  - Reducing broadcast traffic
+
+> 📌 CIDR (Classless Inter-Domain Routing) uses subnet masks in the form `/x` to denote number of network bits.
+
+---
+---
