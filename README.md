@@ -88,7 +88,6 @@
 ---
 
 
-
 # 📘 Interview Preparation Guide
 
 ---
@@ -349,6 +348,9 @@ public:
 };
 ```
 
+---
+---
+
 # 📚 Data Structures & Algorithms (DSA) Guide
 
 ## 🏗️ Data Structures
@@ -387,7 +389,6 @@ struct Node {
 
 Node* head = new Node{1, new Node{2, nullptr}};
 ```
-
 
 # 📘 Data Structures & Algorithms (DSA)
 
@@ -611,6 +612,460 @@ for (int i = 0; i < n-1; i++)
 ### Greedy Algorithms
 **Locally optimal choice aiming for global optimum.**
 
+---
+---
 
+# Complete MySQL Database Guide
+
+## 1. SQL Queries in MySQL
+
+### Joins
+**Description:**  
+Joins combine data from multiple tables based on related columns. MySQL supports ANSI SQL join syntax but has optimizations for specific join types.
+
+**Types Explained:**  
+- **INNER JOIN:** Returns only matching rows from both tables  
+- **LEFT JOIN:** Returns all rows from the left table + matches from right  
+- **RIGHT JOIN:** Returns all rows from the right table + matches from left  
+- **CROSS JOIN:** Cartesian product (all possible combinations)  
+- **SELF JOIN:** Joins a table to itself  
+
+**MySQL Examples:**
+```sql
+-- INNER JOIN (Default join in MySQL)
+SELECT o.order_id, c.name
+FROM orders o
+JOIN customers c ON o.customer_id = c.id; -- 'INNER' is optional
+```
+
+```sql
+-- LEFT JOIN (All customers + orders if they exist)
+SELECT c.name, o.order_date
+FROM customers c
+LEFT JOIN orders o ON c.id = o.customer_id;
+```
+
+```sql
+-- Right Join (All orders + customer info including orphaned orders)
+SELECT o.order_id, c.customer_name
+FROM orders o
+RIGHT JOIN customers c ON o.customer_id = c.customer_id;
+```
+
+```sql
+-- CROSS JOIN (Explicit syntax)
+SELECT p.name, s.size
+FROM products p
+CROSS JOIN sizes s; -- MySQL optimizes better than implicit comma joins
+```
+
+### Subqueries
+**Description:**  
+Queries nested inside other queries. MySQL processes them differently based on context (WHERE, FROM, SELECT).
+
+**Performance Note:**  
+MySQL 8.0+ optimizes subqueries better than older versions. Correlated subqueries can be slow in large datasets.
+
+**MySQL Examples:**
+```sql
+-- WHERE clause subquery (MySQL executes this first)
+SELECT name
+FROM products
+WHERE id IN (
+  SELECT product_id FROM inventory WHERE quantity = 0
+);
+```
+
+```sql
+-- FROM clause subquery (MySQL calls this a "derived table")
+SELECT avg_salaries.department, avg_salaries.avg_salary
+FROM (
+  SELECT department_id, AVG(salary) as avg_salary
+  FROM employees
+  GROUP BY department_id
+) AS avg_salaries
+WHERE avg_salaries.avg_salary > 50000;
+```
+
+```sql
+-- EXISTS (MySQL stops processing when first match is found)
+SELECT c.name
+FROM customers c
+WHERE EXISTS (
+  SELECT 1 FROM orders
+  WHERE customer_id = c.id AND total > 1000
+);
+```
+
+### Aggregations
+**Description:**  
+Operations that summarize multiple rows. MySQL aggregation is optimized when using InnoDB tables with proper indexes.
+
+**Key Functions:**  
+- COUNT()  
+- SUM()  
+- AVG()  
+- MIN()  
+- MAX()  
+- GROUP_CONCAT() (MySQL-specific string aggregation)  
+- Window functions (MySQL 8.0+)
+
+**MySQL Examples:**
+```sql
+-- Basic GROUP BY (MySQL requires all non-aggregated columns in GROUP BY)
+SELECT department_id, COUNT(*) as emp_count, AVG(salary)
+FROM employees
+GROUP BY department_id;
+```
+
+```sql
+-- HAVING (MySQL filters after aggregation)
+SELECT product_id, SUM(quantity) as total_sold
+FROM order_items
+GROUP BY product_id
+HAVING total_sold > 100;
+```
+
+```sql
+-- GROUP_CONCAT (MySQL string aggregator)
+SELECT department_id,
+GROUP_CONCAT(DISTINCT last_name ORDER BY hire_date SEPARATOR '|') as employees
+FROM employees
+GROUP BY department_id;
+```
+
+## 2. Normalization in MySQL
+
+### 1NF (First Normal Form)
+**Description:**  
+- Eliminates repeating groups  
+- All attributes contain atomic (indivisible) values  
+- Each record needs unique identifier (primary key)  
+
+**Example:**  
+Before 1NF (non-atomic values):  
+```
+OrderID | Products
+--------|---------
+1001    | Pen, Notebook, Pencil
+```  
+After 1NF:  
+```
+OrderID | Product
+--------|--------
+1001    | Pen
+1001    | Notebook
+1001    | Pencil
+```
+
+**1NF Implementation:**
+```sql
+-- Before (repeating groups)
+CREATE TABLE orders (
+  order_id INT PRIMARY KEY,
+  products VARCHAR(255) -- "Item1,Item2,Item3"
+);
+```
+
+```sql
+-- After 1NF
+CREATE TABLE order_items (
+  order_id INT,
+  product_id INT,
+  quantity INT,
+  PRIMARY KEY (order_id, product_id)
+);
+```
+
+### 2NF (Second Normal Form)
+**Description:**  
+- Must be in 1NF  
+- No partial dependency (all non-key attributes depend on entire primary key)  
+
+**Example:**  
+Before 2NF (partial dependency):  
+```
+OrderID | ProductID | ProductName | Quantity
+--------|-----------|-------------|--------
+1001    | P001      | Notebook    | 2
+```  
+After 2NF (split tables):  
+Orders table:  
+```
+OrderID | ProductID | Quantity
+--------|-----------|--------
+1001    | P001      | 2
+```  
+Products table:  
+```
+ProductID | ProductName
+----------|-------------
+P001      | Notebook
+```
+
+**2NF Implementation:**
+```sql
+-- Before (partial dependency)
+CREATE TABLE orders (
+  order_id INT PRIMARY KEY,
+  product_id INT,
+  product_name VARCHAR(100), -- Depends only on product_id
+  quantity INT
+);
+```
+
+```sql
+-- After 2NF
+CREATE TABLE orders (
+  order_id INT,
+  product_id INT,
+  quantity INT,
+  PRIMARY KEY (order_id, product_id)
+);
+
+CREATE TABLE products (
+  product_id INT PRIMARY KEY,
+  product_name VARCHAR(100)
+);
+```
+
+### 3NF (Third Normal Form)
+**Description:**  
+- Must be in 2NF  
+- No transitive dependency (non-key attributes do not depend on other non-key attributes)  
+
+**Example:**  
+Before 3NF (transitive dependency):  
+```
+EmployeeID | Name | Department | DeptLocation
+-----------|------|------------|-------------
+101        | John | Sales      | Floor 1
+```  
+After 3NF:  
+Employees table:  
+```
+EmployeeID | Name | DepartmentID
+-----------|------|-------------
+101        | John | 1
+```  
+Departments table:  
+```
+DepartmentID | Department | Location
+-------------|------------|---------
+1            | Sales      | Floor 1
+```
+
+**3NF Implementation:**
+```sql
+-- Before (transitive dependency)
+CREATE TABLE employees (
+  employee_id INT PRIMARY KEY,
+  name VARCHAR(100),
+  department VARCHAR(100),
+  department_head VARCHAR(100) -- Depends on department
+);
+```
+
+```sql
+-- After 3NF
+CREATE TABLE employees (
+  employee_id INT PRIMARY KEY,
+  name VARCHAR(100),
+  department_id INT
+);
+
+CREATE TABLE departments (
+  department_id INT PRIMARY KEY,
+  name VARCHAR(100),
+  head VARCHAR(100)
+);
+```
+
+### BCNF (Boyce-Codd Normal Form)
+**Description:**  
+- Stricter version of 3NF  
+- For any dependency A → B, A must be a superkey  
+
+**Example:**  
+Before BCNF (violation when a non-superkey determines another attribute):  
+```
+StudentID | Course | Instructor
+----------|--------|-----------
+S1        | Math   | ProfA
+S1        | Physics| ProfB
+```  
+After BCNF:  
+StudentCourses table:  
+```
+StudentID | CourseID
+----------|---------
+S1        | C1
+S1        | C2
+```  
+CourseInstructors table:  
+```
+CourseID | Instructor
+---------|-----------
+C1       | ProfA
+C2       | ProfB
+```
+
+**1NF to BCNF Summary:**  
+Normalization reduces data redundancy. MySQL does not enforce normalization rules automatically - it is the responsibility of the developer.
+
+**MySQL Implementation:**
+```sql
+-- Before Normalization (all in one table)
+CREATE TABLE orders (
+  order_id INT,
+  customer_name VARCHAR(100), -- Repeats for same customer
+  product_details JSON -- Contains multiple values
+);
+```
+
+```sql
+-- After 3NF (MySQL best practice)
+CREATE TABLE customers (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE products (
+  id INT PRIMARY KEY,
+  name VARCHAR(100),
+  price DECIMAL(10,2)
+) ENGINE=InnoDB;
+
+CREATE TABLE orders (
+  id INT PRIMARY KEY,
+  customer_id INT,
+  order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (customer_id) REFERENCES customers(id)
+  ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+CREATE TABLE order_items (
+  order_id INT,
+  product_id INT,
+  quantity INT,
+  PRIMARY KEY (order_id, product_id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+) ENGINE=InnoDB;
+```
+
+## 3. MySQL Indexing
+**Description:**  
+Indexes speed up searches but slow down writes. MySQL uses B-trees by default for most indexes.
+
+**Types in MySQL:**  
+- Primary Key (clustered index in InnoDB)  
+- Secondary indexes  
+- Full-text indexes (MyISAM/InnoDB)  
+- Spatial indexes (for GIS data)
+
+**Examples:**
+```sql
+-- Creating indexes (MySQL syntax)
+ALTER TABLE customers
+ADD INDEX idx_last_name (last_name(20)); -- Prefix index for VARCHAR
+```
+
+```sql
+CREATE TABLE logs (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  message TEXT,
+  created_at DATETIME,
+  INDEX idx_created (created_at)
+) ENGINE=InnoDB;
+```
+
+```sql
+-- EXPLAIN (MySQL query analysis tool)
+EXPLAIN FORMAT=JSON
+SELECT * FROM orders WHERE customer_id = 100;
+```
+
+## 4. MySQL Transactions
+**Description:**  
+Transactions ensure ACID compliance. MySQL default storage engine (InnoDB) fully supports transactions.
+
+**ACID in MySQL:**  
+- Atomicity: START TRANSACTION + COMMIT/ROLLBACK  
+- Isolation: Configurable via SET TRANSACTION ISOLATION LEVEL  
+- Durability: Guaranteed after COMMIT (unless hardware failure)
+
+**Example:**
+```sql
+-- Transaction with error handling
+DELIMITER //
+BEGIN
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION
+  BEGIN
+    ROLLBACK;
+    RESIGNAL;
+  END;
+
+  START TRANSACTION;
+
+  UPDATE accounts SET balance = balance - 100
+  WHERE user_id = 1;
+
+  INSERT INTO transactions
+  VALUES (NULL, 1, -100, NOW());
+
+  COMMIT;
+END //
+DELIMITER ;
+```
+
+## 5. MySQL vs NoSQL
+
+**MySQL Strengths:**  
+- Complex queries with JOINs  
+- ACID transactions  
+- Mature ecosystem
+
+**When to Use NoSQL:**  
+- Rapidly changing schemas  
+- Horizontal scaling needs  
+- Document/Graph data models
+
+**Comparison Example:**
+```sql
+-- MySQL relational approach
+SELECT u.name, p.title
+FROM users u
+JOIN posts p ON u.id = p.user_id
+WHERE p.created_at > '2023-01-01';
+```
+
+```javascript
+// Equivalent MongoDB
+db.users.aggregate([
+  {
+    $lookup: {
+      from: "posts",
+      localField: "_id",
+      foreignField: "user_id",
+      as: "posts"
+    }
+  },
+  { $unwind: "$posts" },
+  { $match: { "posts.created_at": { $gt: ISODate("2023-01-01") } } },
+  { $project: { name: 1, "posts.title": 1 } }
+]);
+```
+
+**When to Use:**  
+| Requirement              | Recommended System         |
+|--------------------------|----------------------------|
+| Complex transactions     | PostgreSQL                 |
+| Flexible schema          | MongoDB                    |
+| JSON operations          | PostgreSQL (JSONB)         |
+| Horizontal scaling       | MongoDB (Sharding)         |
+| Advanced analytics       | PostgreSQL (Window funcs)  |
+
+---
+---
 
 
