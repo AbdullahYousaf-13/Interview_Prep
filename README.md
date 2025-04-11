@@ -351,7 +351,7 @@ public:
 ---
 ---
 
-# 📚 Data Structures & Algorithms (DSA) Guide
+# 2. 📚 Data Structures & Algorithms (DSA) Guide
 
 ## 🏗️ Data Structures
 
@@ -615,9 +615,9 @@ for (int i = 0; i < n-1; i++)
 ---
 ---
 
-# Complete MySQL Database Guide
+# 3. Complete MySQL Database Guide
 
-## 1. SQL Queries in MySQL
+## SQL Queries in MySQL
 
 ### Joins
 **Description:**  
