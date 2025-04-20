@@ -981,16 +981,6 @@ DELIMITER ;
 
 ## 5. MySQL vs NoSQL
 
-**MySQL Strengths:**  
-- Complex queries with JOINs  
-- ACID transactions  
-- Mature ecosystem
-
-**When to Use NoSQL:**  
-- Rapidly changing schemas  
-- Horizontal scaling needs  
-- Document/Graph data models
-
 **Comparison Example:**
 ```sql
 -- MySQL relational approach
@@ -1018,13 +1008,19 @@ db.users.aggregate([
 ```
 
 **When to Use:**  
-| Requirement              | Recommended System         |
-|--------------------------|----------------------------|
-| Complex transactions     | PostgreSQL                 |
-| Flexible schema          | MongoDB                    |
-| JSON operations          | PostgreSQL (JSONB)         |
-| Horizontal scaling       | MongoDB (Sharding)         |
-| Advanced analytics       | PostgreSQL (Window funcs)  |
+| Feature                     | SQL (Relational Databases)               | NoSQL (Non-Relational Databases)             |
+|-----------------------------|------------------------------------------|----------------------------------------------|
+| **Data Model**              | Structured, tabular (rows & columns)     | Flexible: key-value, document, graph, column |
+| **Schema**                  | Fixed schema, predefined structure       | Dynamic schema, flexible structure           |
+| **Scalability**             | Vertical (scale-up: more power to server)| Horizontal (scale-out: more servers)         |
+| **ACID Compliance**         | Strong ACID compliance                   | Often relaxes ACID for performance/scalability|
+| **Joins**                   | Supports complex joins                   | Limited or no joins                          |
+| **Best Use Case**           | Structured data, complex queries         | Unstructured/semi-structured data, big data  |
+| **Examples**                | MySQL, PostgreSQL, Oracle, SQL Server    | MongoDB, Cassandra, Redis, Couchbase         |
+| **Query Language**          | SQL (Structured Query Language)          | Varies by database (e.g., JSON-like in MongoDB) |
+| **Transactions**            | Strong and reliable                      | Varies – not always guaranteed               |
+| **Flexibility**             | Less flexible due to strict schema       | Highly flexible and adaptable                |
+
 
 ---
 ---
