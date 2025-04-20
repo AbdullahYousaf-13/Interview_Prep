@@ -597,31 +597,27 @@ Joins combine data from multiple tables based on related columns. MySQL supports
 
 **MySQL Examples:**
 ```sql
--- INNER JOIN (Default join in MySQL)
-SELECT o.order_id, c.name
-FROM orders o
-JOIN customers c ON o.customer_id = c.id; -- 'INNER' is optional
+-- SELECT orders.order_id, customers.name
+FROM orders
+JOIN customers ON orders.customer_id = customers.id;
 ```
 
 ```sql
--- LEFT JOIN (All customers + orders if they exist)
-SELECT c.name, o.order_date
-FROM customers c
-LEFT JOIN orders o ON c.id = o.customer_id;
+-- SELECT customers.name, orders.order_date
+FROM customers
+LEFT JOIN orders ON customers.id = orders.customer_id;
 ```
 
 ```sql
--- Right Join (All orders + customer info including orphaned orders)
-SELECT o.order_id, c.customer_name
-FROM orders o
-RIGHT JOIN customers c ON o.customer_id = c.customer_id;
+-- SELECT orders.order_id, customers.customer_name
+FROM orders
+RIGHT JOIN customers ON orders.customer_id = customers.customer_id;
 ```
 
 ```sql
--- CROSS JOIN (Explicit syntax)
-SELECT p.name, s.size
-FROM products p
-CROSS JOIN sizes s; -- MySQL optimizes better than implicit comma joins
+-- SELECT products.name, sizes.size
+FROM products
+CROSS JOIN sizes;
 ```
 
 ### Subqueries
