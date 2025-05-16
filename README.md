@@ -416,16 +416,23 @@ q.push(20); q.pop();
 ### 6. Trees
 **Description**: Hierarchical structure. BST keeps data ordered, AVL is self-balancing, and heaps maintain a heap property.
 
-**Example** (BST Insertion):
-```cpp
-struct Node {
-    int data;
-    Node *left, *right;
-    Node(int val): data(val), left(NULL), right(NULL) {}
-};
-```
+**Binary Tree:**
+A tree where each node has at most two children, called left and right.
 
----
+- Simple and foundational tree structure.
+- Used in expression trees, hierarchical data models, etc.
+
+**Binary Search Tree:**
+A binary tree where the left child contains values less than the parent, and the right child contains values greater than the parent.
+
+- Enables fast search, insert, and delete operations (average-case: O(log n)).
+- Must be balanced for efficiency.
+
+**Balanced Tree:**
+A tree where the height difference between left and right subtrees is kept minimal to ensure performance.
+
+- AVL Tree: Self-balancing BST, maintains balance using rotations after insert/delete.
+- Red-Black Tree: Another self-balancing BST using coloring rules and rotations.
 
 ### 7. Graphs
 **Description**: Consists of nodes (vertices) and edges. Can be directed/undirected.
