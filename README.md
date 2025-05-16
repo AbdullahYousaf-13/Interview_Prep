@@ -12,23 +12,22 @@
 ---
 
 ### 2. Data Structures & Algorithms (DSA)
-#### **Data Structures**:
+
+#### Data Structures:
 - Arrays, Strings, Linked Lists
 - Stacks, Queues
 - Trees (Binary Trees, BST, AVL, Heaps)
-  - Tree Balancing & Sorting
+- Tree Balancing & Sorting
 - Graphs (BFS, DFS, Dijkstra’s, MST)
 
-#### **Algorithms**:
-## Data Structures & Algorithms (DSA)
-
-### Searching Algorithms
+#### Algorithms:
+##### Searching Algorithms
 - Linear Search
 - Binary Search
 - Depth First Search (DFS)
 - Breadth First Search (BFS)
 
-### Sorting Algorithms
+##### Sorting Algorithms
 - Insertion Sort
 - Heap Sort
 - Selection Sort
@@ -39,21 +38,21 @@
 - Bucket Sort
 - Radix Sort
 
-### Graph Algorithms
+##### Graph Algorithms
 - Dijkstra's Algorithm
 - Bellman-Ford Algorithm
 - Floyd-Warshall Algorithm
 - Topological Sort
 - Kruskal's Algorithm
 
-### Array Algorithms
+##### Array Algorithms
 - Floyd's Cycle Detection
 - Quick Select
 
-### Advanced Algorithms
+##### Advanced Algorithms
 - Huffman Coding (Compression)
 
-### Others
+##### Others
 - Recursion & Backtracking
 - Dynamic Programming
 - Greedy Algorithms
@@ -61,28 +60,28 @@
 ---
 
 ### 3. Database Management (DB)
-- **SQL Queries** (Joins, Subqueries, Aggregations)
-- **Normalization** (1NF, 2NF, 3NF, BCNF)
-- **Indexing & Transactions** (ACID Properties)
-- **NoSQL vs SQL** (MongoDB vs PostgreSQL)
+- SQL Queries (Joins, Subqueries, Aggregations)
+- Normalization (1NF, 2NF, 3NF, BCNF)
+- Indexing & Transactions (ACID Properties)
+- NoSQL vs SQL (MongoDB vs PostgreSQL)
 
 ---
 
 ### 4. Computer Networks (CN)
-- **OSI & TCP/IP Models**
-- **HTTP vs HTTPS, DNS, REST APIs**
-- **TCP vs UDP** (Connection-oriented vs Connectionless)
-- **IP Addressing** (IPv4, Subnetting)
+- OSI & TCP/IP Models
+- HTTP vs HTTPS, DNS, REST APIs
+- TCP vs UDP (Connection-oriented vs Connectionless)
+- IP Addressing (IPv4, Subnetting)
 
 ---
 
 ### 5. Coding & Problem-Solving
-- **Time & Space Complexity** (Big-O Notation)
-- **Problem Patterns**:
+- Time & Space Complexity (Big-O Notation)
+- Problem Patterns:
   - Two Pointers
   - Sliding Window
   - Tree/Graph Traversals
-- **Git Basics** (Commit, Branching, Merge Conflicts)
+- Git Basics (Commit, Branching, Merge Conflicts)
 
 ---
 ---
@@ -414,7 +413,7 @@ q.push(20); q.pop();
 
 ---
 
-### 6. Trees (Binary, BST, AVL, Heap)
+### 6. Trees
 **Description**: Hierarchical structure. BST keeps data ordered, AVL is self-balancing, and heaps maintain a heap property.
 
 **Example** (BST Insertion):
