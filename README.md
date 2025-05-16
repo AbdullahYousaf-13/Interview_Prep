@@ -534,6 +534,33 @@ for (int i = 0; i < n-1; i++)
 ### Bucket Sort & Radix Sort
 **Used for integer or floating-point sorting with known range.**
 
+## Complexties
+
+### 🔍 Searching Algorithms
+
+| Algorithm         | Best Case  | Average Case | Worst Case  | Space Complexity | Notes                              |
+|------------------|------------|--------------|-------------|------------------|-------------------------------------|
+| **Linear Search** | O(1)       | O(n)         | O(n)        | O(1)             | Works on unsorted data              |
+| **Binary Search** | O(1)       | O(log n)     | O(log n)    | O(1)             | Requires **sorted** array           |
+| **DFS (Graph)**   | O(V + E)   | O(V + E)     | O(V + E)    | O(V)             | V = vertices, E = edges             |
+| **BFS (Graph)**   | O(V + E)   | O(V + E)     | O(V + E)    | O(V)             | Uses a queue for traversal          |
+
+---
+
+### 🔃 Sorting Algorithms
+
+| Algorithm         | Best Case  | Average Case | Worst Case  | Space Complexity | Stable? | Notes                                |
+|------------------|------------|--------------|-------------|------------------|---------|---------------------------------------|
+| **Insertion Sort**| O(n)       | O(n²)        | O(n²)       | O(1)             | ✅      | Good for small or nearly sorted data |
+| **Heap Sort**     | O(n log n) | O(n log n)   | O(n log n)  | O(1)             | ❌      | Not stable, uses heap structure      |
+| **Selection Sort**| O(n²)      | O(n²)        | O(n²)       | O(1)             | ❌      | Simple but inefficient               |
+| **Merge Sort**    | O(n log n) | O(n log n)   | O(n log n)  | O(n)             | ✅      | Divide and conquer, stable           |
+| **Quick Sort**    | O(n log n) | O(n log n)   | O(n²)       | O(log n)         | ❌      | Fast in practice, not stable         |
+| **Counting Sort** | O(n + k)   | O(n + k)     | O(n + k)    | O(k)             | ✅      | Only for small-range integers        |
+| **Bubble Sort**   | O(n)       | O(n²)        | O(n²)       | O(1)             | ✅      | Simple, inefficient for large data   |
+| **Bucket Sort**   | O(n + k)   | O(n + k)     | O(n²)       | O(n + k)         | ✅      | Depends on distribution              |
+| **Radix Sort**    | O(nk)      | O(nk)        | O(nk)       | O(n + k)         | ✅      | k = number of digits                 |
+
 ---
 
 ## 🌐 Graph Algorithms
