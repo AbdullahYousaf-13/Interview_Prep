@@ -92,19 +92,17 @@
 ---
 
 # 1.🧠 Object-Oriented Programming (OOP)
-
 Object-Oriented Programming (OOP) is a programming paradigm based on the concept of **“objects”**, which can contain data and code to manipulate the data. It aims to model real-world entities using classes and objects.
 
 ---
 
-## 🔹 Classes & Objects
+## Classes & Objects
 
-### 🔸 Explanation
-
+**Explanation:**
 - **Class**: A user-defined blueprint or prototype from which objects are created.
 - **Object**: An instance of a class. It holds actual values for the attributes defined in the class.
 
-### 🔸 Example:
+**Example:**
 ```cpp
 class Car {
 public:
@@ -123,13 +121,12 @@ int main() {
 
 ---
 
-## 🔹 Inheritance
+## Inheritance
 
-### 🔸 Explanation
-
+**Explanation:**
 Inheritance is the process by which one class (child/derived class) acquires the properties and behavior (methods) of another class (parent/base class).
 
-### 🔸 Example:
+**Example:**
 ```cpp
 class Animal {
 public:
@@ -154,15 +151,13 @@ int main() {
 
 ---
 
-## 🔹 Polymorphism
+## Polymorphism
 
-### 🔸 Explanation
-
+**Explanation:**
 Polymorphism allows one interface to be used for a general class of actions. The specific action is determined by the exact nature of the situation.
 
-### 🔸 Example:
-
-**Compile-Time Polymorphism (Function Overloading)**:
+**Examples:**
+**Compile-Time Polymorphism (Function Overloading):**
 ```cpp
 class Print {
 public:
@@ -176,7 +171,7 @@ public:
 };
 ```
 
-**Run-Time Polymorphism (Virtual Functions)**:
+**Run-Time Polymorphism (Virtual Functions):**
 ```cpp
 class Base {
 public:
@@ -200,13 +195,12 @@ int main() {
 
 ---
 
-## 🔹 Abstraction
+## Abstraction
 
-### 🔸 Explanation
-
+**Explanation**
 Abstraction hides complex implementation details and shows only the necessary features of an object.
 
-### 🔸 Example:
+**Example:**
 ```cpp
 class AbstractDevice {
 public:
@@ -223,13 +217,12 @@ public:
 
 ---
 
-## 🔹 Encapsulation
+## Encapsulation
 
-### 🔸 Explanation
-
+**Explanation:**
 Encapsulation is the process of wrapping data and code into a single unit. Access modifiers control visibility.
 
-### 🔸 Example:
+**Example:**
 ```cpp
 class Account {
 private:
@@ -248,15 +241,15 @@ public:
 
 ---
 
-## 🔹 Virtual Functions & Abstract Classes
+## Virtual Functions & Abstract Classes
 
-### 🔸 Virtual Functions:
+**Virtual Functions:**
 Used to achieve run-time polymorphism by overriding functions in derived classes.
 
-### 🔸 Abstract Classes:
+**Abstract Classes:**
 Contain at least one pure virtual function. Cannot be instantiated.
 
-### 🔸 Example:
+**Example:**
 ```cpp
 class Shape {
 public:
@@ -273,12 +266,12 @@ public:
 
 ---
 
-## 🔹 Interfaces
+## Interfaces
 
-### 🔸 Explanation:
+**Explanation:**
 In C++, an interface is implemented using an abstract class with only pure virtual functions.
 
-### 🔸 Example:
+**Example:**
 ```cpp
 class IPrintable {
 public:
@@ -295,12 +288,12 @@ public:
 
 ---
 
-## 🔹 Association and its Types
+## Association and its Types
 
-### 🔸 Explanation:
+**Explanation:**
 Association represents relationships between classes.
 
-### 🔸 Types:
+**Types:**
 
 | Type          | Description | Example |
 |---------------|-------------|---------|
@@ -308,7 +301,7 @@ Association represents relationships between classes.
 | Aggregation   | "Has-a" - child can exist without parent | A Library has Books |
 | Composition   | Strong "Has-a" - child cannot exist without parent | A House has Rooms |
 
-### 🔸 Code Example for Aggregation:
+**Example for Aggregation:**
 ```cpp
 class Engine {
 public:
@@ -328,7 +321,7 @@ public:
 };
 ```
 
-### 🔸 Code Example for Composition:
+**Code Example for Composition:**
 ```cpp
 class Brain {
 public:
@@ -356,7 +349,7 @@ public:
 
 ---
 
-### 1. Arrays
+**Arrays**
 **Description**: Arrays are a collection of elements stored at contiguous memory locations. They allow fast access using an index.
 
 **Example**:
@@ -367,7 +360,7 @@ cout << arr[2]; // Output: 3
 
 ---
 
-### 2. Strings
+**Strings**
 **Description**: Strings are arrays of characters ending with a null character (`\0`). C++ provides the `string` class for dynamic strings.
 
 **Example**:
@@ -378,7 +371,7 @@ cout << s.length(); // Output: 5
 
 ---
 
-### 3. Linked Lists
+**Linked Lists**
 **Description**: A linear data structure where elements are stored in nodes and each node points to the next.
 
 **Example**:
@@ -391,7 +384,7 @@ struct Node {
 
 ---
 
-### 4. Stacks
+**Stacks**
 **Description**: Follows Last In First Out (LIFO) principle.
 
 **Example**:
@@ -402,7 +395,7 @@ st.push(10); st.pop();
 
 ---
 
-### 5. Queues
+**Queues**
 **Description**: Follows First In First Out (FIFO) principle.
 
 **Example**:
@@ -413,7 +406,7 @@ q.push(20); q.pop();
 
 ---
 
-### 6. Trees
+**Trees**
 **Description**: Hierarchical structure. BST keeps data ordered, AVL is self-balancing, and heaps maintain a heap property.
 
 **Binary Tree:**
@@ -431,10 +424,10 @@ A binary tree where the left child contains values less than the parent, and the
 **Balanced Tree:**
 A tree where the height difference between left and right subtrees is kept minimal to ensure performance.
 
-- AVL Tree: Self-balancing BST, maintains balance using rotations after insert/delete.
-- Red-Black Tree: Another self-balancing BST using coloring rules and rotations.
+- **AVL Tree:** Self-balancing BST, maintains balance using rotations after insert/delete.
+- **Red-Black Tree:** Another self-balancing BST using coloring rules and rotations.
 
-### 7. Graphs
+**Graphs**
 **Description**: Consists of nodes (vertices) and edges. Can be directed/undirected.
 
 **Example**:
@@ -449,9 +442,9 @@ graph[0].push_back(1);
 
 ---
 
-## 🔍 Searching Algorithms
+### 🔍 Searching Algorithms
 
-### 1. Linear Search
+**Linear Search**
 **Description**: Search each element until match is found.
 
 **Example**:
@@ -462,7 +455,7 @@ for (int i = 0; i < n; i++)
 
 ---
 
-### 2. Binary Search
+**Binary Search**
 **Description**: Efficient search on sorted array by dividing into halves.
 
 **Example**:
@@ -472,7 +465,7 @@ int binarySearch(int arr[], int l, int r, int x);
 
 ---
 
-### 3. DFS (Depth First Search)
+**DFS (Depth First Search)**
 **Description**: Explore as far as possible along each branch.
 
 **Example**:
@@ -486,7 +479,7 @@ void DFS(int v) {
 
 ---
 
-### 4. BFS (Breadth First Search)
+**BFS (Breadth First Search)**
 **Description**: Explore neighbor nodes level by level.
 
 **Example**:
@@ -498,9 +491,9 @@ visited[start] = true;
 
 ---
 
-## 📊 Sorting Algorithms
+### 📊 Sorting Algorithms
 
-### Insertion Sort
+**Insertion Sort**
 ```cpp
 for (int i = 1; i < n; i++) {
     int key = arr[i], j = i - 1;
@@ -509,30 +502,30 @@ for (int i = 1; i < n; i++) {
 }
 ```
 
-### Heap Sort
-**Uses heap to extract elements in sorted order.**
+**Heap Sort**
+Uses heap to extract elements in sorted order.
 
-### Selection Sort
-**Selects minimum and places in correct position.**
+**Selection Sort**
+Selects minimum and places in correct position.
 
-### Merge Sort
-**Divide and conquer sorting technique.**
+**Merge Sort**
+Divide and conquer sorting technique.
 
-### Quick Sort
-**Choose pivot, partition, and sort recursively.**
+**Quick Sort**
+Choose pivot, partition, and sort recursively.
 
-### Counting Sort
-**Used for small range integers.**
+**Counting Sort**
+Used for small range integers.
 
-### Bubble Sort
+**Bubble Sort**
 ```cpp
 for (int i = 0; i < n-1; i++)
     for (int j = 0; j < n-i-1; j++)
         if (arr[j] > arr[j+1]) swap(arr[j], arr[j+1]);
 ```
 
-### Bucket Sort & Radix Sort
-**Used for integer or floating-point sorting with known range.**
+**Bucket Sort & Radix Sort**
+Used for integer or floating-point sorting with known range.
 
 ## Complexties
 
@@ -565,50 +558,50 @@ for (int i = 0; i < n-1; i++)
 
 ## 🌐 Graph Algorithms
 
-### Dijkstra's Algorithm
-**Finds shortest paths from source to all nodes.**
+**Dijkstra's Algorithm**
+Finds shortest paths from source to all nodes.
 
-### Bellman-Ford Algorithm
-**Handles negative weights too.**
+**Bellman-Ford Algorithm**
+Handles negative weights too.
 
-### Floyd-Warshall Algorithm
-**All-pairs shortest paths.**
+**Floyd-Warshall Algorithm**
+All-pairs shortest paths.
 
-### Topological Sort
-**Ordering of vertices in DAG.**
+**Topological Sort**
+Ordering of vertices in DAG.
 
-### Kruskal's Algorithm
-**Minimum Spanning Tree using Union-Find.**
+**Kruskal's Algorithm**
+Minimum Spanning Tree using Union-Find.
 
 ---
 
 ## 📈 Array Algorithms
 
-### Floyd’s Cycle Detection
-**Detects loop in linked list.**
+**Foyd’s Cycle Detection**
+Detects loop in linked list.
 
-### Quick Select
-**Find kth smallest/largest element.**
+**Quick Select**
+Find kth smallest/largest element.
 
 ---
 
 ## 🔁 Advanced Algorithms
 
-### Huffman Coding
-**Greedy compression algorithm.**
+**Huffman Coding**
+Greedy compression algorithm.
 
 ---
 
 ## 🧠 Other Topics
 
-### Recursion & Backtracking
-**Recursive solutions exploring all possibilities.**
+**Recursion & Backtracking**
+Recursive solutions exploring all possibilities.
 
-### Dynamic Programming
-**Solving problems by combining subproblem results.**
+**Dynamic Programming**
+Solving problems by combining subproblem results.
 
-### Greedy Algorithms
-**Locally optimal choice aiming for global optimum.**
+**Greedy Algorithms**
+Locally optimal choice aiming for global optimum.
 
 ---
 ---
