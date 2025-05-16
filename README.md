@@ -3,11 +3,11 @@
 ## 📌 Core Topics to Prepare
 
 ### 1. Object-Oriented Programming (OOP)
-- **Classes & Objects**
-- **Inheritance, Polymorphism, Abstraction, Encapsulation**
-- **Interfaces** 
-- **Virtual Functions & Abstract Classes**
-- **Association and its Types**
+- Classes & Objects
+- Inheritance, Polymorphism, Abstraction, Encapsulation
+- Interfaces
+- Virtual Functions & Abstract Classes
+- Association and its Types
 
 ---
 
