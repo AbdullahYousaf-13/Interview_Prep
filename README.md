@@ -349,7 +349,7 @@ public:
 
 ---
 
-**Arrays**
+### Arrays
 **Description**: Arrays are a collection of elements stored at contiguous memory locations. They allow fast access using an index.
 
 **Example**:
@@ -360,7 +360,7 @@ cout << arr[2]; // Output: 3
 
 ---
 
-**Strings**
+### Strings
 **Description**: Strings are arrays of characters ending with a null character (`\0`). C++ provides the `string` class for dynamic strings.
 
 **Example**:
@@ -371,7 +371,7 @@ cout << s.length(); // Output: 5
 
 ---
 
-**Linked Lists**
+### Linked Lists
 **Description**: A linear data structure where elements are stored in nodes and each node points to the next.
 
 **Example**:
@@ -384,7 +384,7 @@ struct Node {
 
 ---
 
-**Stacks**
+### Stacks
 **Description**: Follows Last In First Out (LIFO) principle.
 
 **Example**:
@@ -395,7 +395,7 @@ st.push(10); st.pop();
 
 ---
 
-**Queues**
+### Queues
 **Description**: Follows First In First Out (FIFO) principle.
 
 **Example**:
@@ -406,28 +406,28 @@ q.push(20); q.pop();
 
 ---
 
-**Trees**
+### Trees
 **Description**: Hierarchical structure. BST keeps data ordered, AVL is self-balancing, and heaps maintain a heap property.
 
-**Binary Tree:**
+#### Binary Tree:
 A tree where each node has at most two children, called left and right.
 
 - Simple and foundational tree structure.
 - Used in expression trees, hierarchical data models, etc.
 
-**Binary Search Tree:**
+#### Binary Search Tree:
 A binary tree where the left child contains values less than the parent, and the right child contains values greater than the parent.
 
 - Enables fast search, insert, and delete operations (average-case: O(log n)).
 - Must be balanced for efficiency.
 
-**Balanced Tree:**
+#### Balanced Tree:
 A tree where the height difference between left and right subtrees is kept minimal to ensure performance.
 
 - **AVL Tree:** Self-balancing BST, maintains balance using rotations after insert/delete.
 - **Red-Black Tree:** Another self-balancing BST using coloring rules and rotations.
 
-**Graphs**
+### Graphs
 **Description**: Consists of nodes (vertices) and edges. Can be directed/undirected.
 
 **Example**:
@@ -444,7 +444,7 @@ graph[0].push_back(1);
 
 ### 🔍 Searching Algorithms
 
-**Linear Search**
+#### Linear Search
 **Description**: Search each element until match is found.
 
 **Example**:
@@ -455,7 +455,7 @@ for (int i = 0; i < n; i++)
 
 ---
 
-**Binary Search**
+#### Binary Search
 **Description**: Efficient search on sorted array by dividing into halves.
 
 **Example**:
@@ -465,7 +465,7 @@ int binarySearch(int arr[], int l, int r, int x);
 
 ---
 
-**DFS (Depth First Search)**
+#### DFS (Depth First Search)
 **Description**: Explore as far as possible along each branch.
 
 **Example**:
@@ -479,7 +479,7 @@ void DFS(int v) {
 
 ---
 
-**BFS (Breadth First Search)**
+#### BFS (Breadth First Search)
 **Description**: Explore neighbor nodes level by level.
 
 **Example**:
@@ -493,7 +493,7 @@ visited[start] = true;
 
 ### 📊 Sorting Algorithms
 
-**Insertion Sort**
+#### Insertion Sort
 ```cpp
 for (int i = 1; i < n; i++) {
     int key = arr[i], j = i - 1;
@@ -502,29 +502,29 @@ for (int i = 1; i < n; i++) {
 }
 ```
 
-**Heap Sort**
+#### Heap Sort
 Uses heap to extract elements in sorted order.
 
-**Selection Sort**
+#### Selection Sort
 Selects minimum and places in correct position.
 
-**Merge Sort**
+#### Merge Sort
 Divide and conquer sorting technique.
 
-**Quick Sort**
+#### Quick Sort
 Choose pivot, partition, and sort recursively.
 
-**Counting Sort**
+#### Counting Sort
 Used for small range integers.
 
-**Bubble Sort**
+#### Bubble Sort
 ```cpp
 for (int i = 0; i < n-1; i++)
     for (int j = 0; j < n-i-1; j++)
         if (arr[j] > arr[j+1]) swap(arr[j], arr[j+1]);
 ```
 
-**Bucket Sort & Radix Sort**
+#### Bucket Sort & Radix Sort
 Used for integer or floating-point sorting with known range.
 
 ## Complexties
@@ -558,49 +558,49 @@ Used for integer or floating-point sorting with known range.
 
 ## 🌐 Graph Algorithms
 
-**Dijkstra's Algorithm**
+### Dijkstra's Algorithm
 Finds shortest paths from source to all nodes.
 
-**Bellman-Ford Algorithm**
+### Bellman-Ford Algorithm
 Handles negative weights too.
 
-**Floyd-Warshall Algorithm**
+### Floyd-Warshall Algorithm
 All-pairs shortest paths.
 
-**Topological Sort**
+### Topological Sort
 Ordering of vertices in DAG.
 
-**Kruskal's Algorithm**
+### Kruskal's Algorithm
 Minimum Spanning Tree using Union-Find.
 
 ---
 
 ## 📈 Array Algorithms
 
-**Foyd’s Cycle Detection**
+### Foyd’s Cycle Detection
 Detects loop in linked list.
 
-**Quick Select**
+### Quick Select
 Find kth smallest/largest element.
 
 ---
 
 ## 🔁 Advanced Algorithms
 
-**Huffman Coding**
+### Huffman Coding
 Greedy compression algorithm.
 
 ---
 
 ## 🧠 Other Topics
 
-**Recursion & Backtracking**
+### Recursion & Backtracking
 Recursive solutions exploring all possibilities.
 
-**Dynamic Programming**
+### Dynamic Programming
 Solving problems by combining subproblem results.
 
-**Greedy Algorithms**
+### Greedy Algorithms
 Locally optimal choice aiming for global optimum.
 
 ---
