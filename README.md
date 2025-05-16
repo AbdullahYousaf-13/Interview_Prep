@@ -623,25 +623,25 @@ Joins combine data from multiple tables based on related columns. MySQL supports
 
 **MySQL Examples:**
 ```sql
--- SELECT orders.order_id, customers.name
+SELECT orders.order_id, customers.name
 FROM orders
 JOIN customers ON orders.customer_id = customers.id;
 ```
 
 ```sql
--- SELECT customers.name, orders.order_date
+SELECT customers.name, orders.order_date
 FROM customers
 LEFT JOIN orders ON customers.id = orders.customer_id;
 ```
 
 ```sql
--- SELECT orders.order_id, customers.customer_name
+SELECT orders.order_id, customers.customer_name
 FROM orders
 RIGHT JOIN customers ON orders.customer_id = customers.customer_id;
 ```
 
 ```sql
--- SELECT products.name, sizes.size
+SELECT products.name, sizes.size
 FROM products
 CROSS JOIN sizes;
 ```
